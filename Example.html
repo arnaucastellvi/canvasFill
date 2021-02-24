@@ -30,9 +30,9 @@
 		var	image = context.getImageData(0,0,w,h);
 		var	data = image.data;
 		var offset=(y*w+x)*4;
-		var fonsRGB = {r:data[offset],
-						g:data[offset+1],
-						b:data[offset+2]
+		var fonsRGB = {	r:data[offset],
+				g:data[offset+1],
+				b:data[offset+2]
 		};
 		var fill = function(x,y){
 			var offset=(y*w+x)*4;
@@ -63,18 +63,18 @@
 					fi=i;
 				}
 			}
-			var wy_ant=(y-1)*w;
-			var wy_post=(y+1)*w;
+			var yw_ant=(y-1)*w;
+			var yw_post=(y+1)*w;
 			
 			for (let i=ini; i<=fi ; i++){
 				if (y>0){
-					offset=(wy_ant+i)*4;
+					offset=(yw_ant+i)*4;
 					if (data[offset]==fonsRGB.r && data[offset+1]==fonsRGB.g && data[offset+2]==fonsRGB.b){
 						fill (i,y-1);
 					}
 				}
 				if (y<h){
-					offset=(wy_post+i)*4;
+					offset=(yw_post+i)*4;
 					if (data[offset]==fonsRGB.r && data[offset+1]==fonsRGB.g && data[offset+2]==fonsRGB.b){
 						fill (i,y+1);
 					}
